@@ -92,8 +92,8 @@ CUDA_VISIBLE_DEVICES=0  CUDA_VISIBLE_DEVICES=0 python evals/lipschitzness_analys
 Change ```model_load_path``` to load your desired model.
 
 
-### Jupyter Notebook
-We have also provided a jupyter notebook  ```visualize.ipnyb``` to play around with the given checkpoints in ```/saved_models```.
+### Saved Models
+We have also provided trained checkpoints in ```/saved_models``` to play around.
 
 ## How to Cite
 
