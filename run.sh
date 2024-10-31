@@ -1,0 +1,48 @@
+#!/bin/bash
+
+
+########### make the pretraining dataset #################
+
+python ./data_generator/make_data_pretrain.py --sample_pcfg_number 1 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/pretrain_train_data_pcfg1.pkl' --start_random 0  --test_data_path './saved_data/pretrain_test_data_pcfg1.pkl' --num_samples_train 1000 --num_samples_test 1000
+python ./data_generator/make_data_pretrain.py --sample_pcfg_number 2 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/pretrain_train_data_pcfg2.pkl' --start_random 0  --test_data_path './saved_data/pretrain_test_data_pcfg2.pkl' --num_samples_train 1000 --num_samples_test 1000
+python ./data_generator/make_data_pretrain.py --sample_pcfg_number 3 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/pretrain_train_data_pcfg3.pkl' --start_random 0  --test_data_path './saved_data/pretrain_test_data_pcfg3.pkl' --num_samples_train 1000 --num_samples_test 1000
+python ./data_generator/make_data_pretrain.py --sample_pcfg_number 4 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/pretrain_train_data_pcfg4.pkl' --start_random 0  --test_data_path './saved_data/pretrain_test_data_pcfg4.pkl' --num_samples_train 1000 --num_samples_test 1000
+
+
+
+########### make the safety fine-tuning dataset #################
+
+python data_generator/make_data_safetyfinetune_pcfg1.py --unsafe_ood_mg True --is_train 1 --sample_pcfg_number 1 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_ood_mg_data_train_pcfg1.pkl' --start_random 0  --test_data_path './saved_data/unsafe_ood_mg_data_test_pcfg1.pkl'
+python data_generator/make_data_safetyfinetune_pcfg2.py  --unsafe_ood_mg True --is_train 1 --sample_pcfg_number 2 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_ood_mg_data_train_pcfg2.pkl' --start_random 150  --test_data_path './saved_data/unsafe_ood_mg_data_test_pcfg2.pkl'
+python data_generator/make_data_safetyfinetune_pcfg3.py --unsafe_ood_mg True --is_train 1 --sample_pcfg_number 3 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_ood_mg_data_train_pcfg3.pkl' --start_random 300  --test_data_path './saved_data/unsafe_ood_mg_data_test_pcfg3.pkl'
+python data_generator/make_data_safetyfinetune_pcfg4.py --unsafe_ood_mg True --is_train 1 --sample_pcfg_number 4 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_ood_mg_data_train_pcfg4.pkl' --start_random 450  --test_data_path './saved_data/unsafe_ood_mg_data_test_pcfg4.pkl'
+
+
+python data_generator/make_data_safetyfinetune_pcfg1.py --from_unsafe_branch True --unsafe True --is_train 1 --sample_pcfg_number 1 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_data_train_pcfg1.pkl' --start_random 0  --test_data_path './saved_data/unsafe_data_test_pcfg1.pkl'
+python data_generator/make_data_safetyfinetune_pcfg2.py --from_unsafe_branch True --unsafe True --is_train 1 --sample_pcfg_number 2 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_data_train_pcfg2.pkl' --start_random 150  --test_data_path './saved_data/unsafe_data_test_pcfg2.pkl'
+python data_generator/make_data_safetyfinetune_pcfg3.py --from_unsafe_branch True --unsafe True --is_train 1 --sample_pcfg_number 3 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_data_train_pcfg3.pkl' --start_random 300  --test_data_path './saved_data/unsafe_data_test_pcfg3.pkl'
+python data_generator/make_data_safetyfinetune_pcfg4.py --from_unsafe_branch True --unsafe True --is_train 1 --sample_pcfg_number 4 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_data_train_pcfg4.pkl' --start_random 450  --test_data_path './saved_data/unsafe_data_test_pcfg4.pkl'
+
+
+python data_generator/make_data_safetyfinetune_pcfg1.py --only_duplicates True --is_train 1 --sample_pcfg_number 1 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/duplicates_data_train_pcfg1.pkl' --start_random 0  --test_data_path './saved_data/duplicates_data_test_pcfg1.pkl'
+python data_generator/make_data_safetyfinetune_pcfg2.py --only_duplicates True --is_train 1 --sample_pcfg_number 2 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/duplicates_data_train_pcfg2.pkl' --start_random 150  --test_data_path './saved_data/duplicates_data_test_pcfg2.pkl'
+python data_generator/make_data_safetyfinetune_pcfg3.py --only_duplicates True --is_train 1 --sample_pcfg_number 3 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/duplicates_data_train_pcfg3.pkl' --start_random 300  --test_data_path './saved_data/duplicates_data_test_pcfg3.pkl'
+python data_generator/make_data_safetyfinetune_pcfg4.py --only_duplicates True --is_train 1 --sample_pcfg_number 4 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/duplicates_data_train_pcfg4.pkl' --start_random 450  --test_data_path './saved_data/duplicates_data_test_pcfg4.pkl'
+
+
+python data_generator/make_data_safetyfinetune_pcfg1.py --intermediate True --is_train 1 --sample_pcfg_number 1 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/intermediate_data_train_pcfg1.pkl' --start_random 0  --test_data_path './saved_data/intermediate_data_test_pcfg1.pkl'
+python data_generator/make_data_safetyfinetune_pcfg2.py  --intermediate True --is_train 1 --sample_pcfg_number 2 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/intermediate_data_train_pcfg2.pkl' --start_random 150  --test_data_path './saved_data/intermediate_data_test_pcfg2.pkl'
+python data_generator/make_data_safetyfinetune_pcfg3.py   --intermediate True --is_train 1 --sample_pcfg_number 3 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/intermediate_data_train_pcfg3.pkl' --start_random 300  --test_data_path './saved_data/intermediate_data_test_pcfg3.pkl'
+python data_generator/make_data_safetyfinetune_pcfg4.py   --intermediate True --is_train 1 --sample_pcfg_number 4 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/intermediate_data_train_pcfg4.pkl' --start_random 450  --test_data_path './saved_data/intermediate_data_test_pcfg4.pkl'
+
+
+python data_generator/make_data_safetyfinetune_pcfg1.py --unsafe_id_mg True --is_train 1 --sample_pcfg_number 1 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_id_mg_data_train_pcfg1.pkl' --start_random 0  --test_data_path './saved_data/unsafe_id_mg_data_test_pcfg1.pkl'
+python data_generator/make_data_safetyfinetune_pcfg2.py  --unsafe_id_mg True --is_train 1 --sample_pcfg_number 2 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_id_mg_data_train_pcfg2.pkl' --start_random 150  --test_data_path './saved_data/unsafe_id_mg_data_test_pcfg2.pkl'
+python data_generator/make_data_safetyfinetune_pcfg3.py --unsafe_id_mg True --is_train 1 --sample_pcfg_number 3 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_id_mg_data_train_pcfg3.pkl' --start_random 300  --test_data_path './saved_data/unsafe_id_mg_data_test_pcfg3.pkl'
+python data_generator/make_data_safetyfinetune_pcfg4.py --unsafe_id_mg True --is_train 1 --sample_pcfg_number 4 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/unsafe_id_mg_data_train_pcfg4.pkl' --start_random 450  --test_data_path './saved_data/unsafe_id_mg_data_test_pcfg4.pkl'
+
+
+python data_generator/make_data_safetyfinetune_pcfg1.py --safe True --is_train 1 --sample_pcfg_number 1 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/safe_data_train_pcfg1.pkl' --start_random 0  --test_data_path './saved_data/safe_data_test_pcfg1.pkl'
+python data_generator/make_data_safetyfinetune_pcfg2.py --safe True --is_train 1 --sample_pcfg_number 2 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/safe_data_train_pcfg2.pkl' --start_random 150  --test_data_path './saved_data/safe_data_test_pcfg2.pkl'
+python data_generator/make_data_safetyfinetune_pcfg3.py --safe True --is_train 1 --sample_pcfg_number 3 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/safe_data_train_pcfg3.pkl' --start_random 300  --test_data_path './saved_data/safe_data_test_pcfg3.pkl'
+python data_generator/make_data_safetyfinetune_pcfg4.py --safe True --is_train 1 --sample_pcfg_number 4 --min_input_length 25 --max_input_length 35 --max_window_possible 160 --train_data_path './saved_data/safe_data_train_pcfg4.pkl' --start_random 450  --test_data_path './saved_data/safe_data_test_pcfg4.pkl'
